@@ -1,0 +1,41 @@
+name: Fetch Publications from PubMed
+
+on:
+  # Run weekly on Mondays at 6:00 AM UTC
+  schedule:
+    - cron: '0 6 * * 1'
+
+  # Allow manual trigger
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Fetch publications from PubMed
+        run: python scripts/fetch_publications.py
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git diff --quiet _publications/ && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add _publications/
+          git commit -m "Auto-update publications from PubMed"
+          git push
