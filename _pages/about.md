@@ -8,46 +8,15 @@ redirect_from:
   - /about.html
 ---
 
-## Biography
+I am a Post Doctoral Fellow based in Toronto, Canada. My research goal is to improve our understanding of developmental hematology using cutting-edge technology and apply this understanding to answer translational questions. During my Ph.D., I created the first humanized zebrafish expressing multiple cytokines that support hematopoietic growth and survival (Haematologica, 2020). This model has revolutionized our ability to xenograft human HSPC and patient-derived leukemic cells in zebrafish. In addition, I developed a tet2 loss-of-function model using CRISPR-Cas9 technology. This discovery that tet2 mutation leads to leukemic progression under inflammation and other stimuli that induce stress in the hematopoietic system (Leukemia, 2021) has significantly impacted our understanding of leukemia evolution. During my postdoctoral fellowship, I am furthering our understanding of T-cell development using single-cell sequencing-based lineage-tracing and CRISPR-based screens. My demonstrated broad expertise in hematopoiesis, genome editing, computational biology, and methodology development is a testament to my readiness to pursue an independent research career. My comprehensive understanding of these fields, coupled with my hands-on experience, equips me with the necessary skills to tackle complex research questions and drive innovation in developmental hematology.
 
 Welcome to my academic homepage. I am currently a Post Doctoral Fellow based in Toronto, Canada, working at the intersection of structural biology and computational methods. My work aims to elucidate molecular mechanisms that drive fundamental biological processes, with applications in understanding disease and drug discovery.
 
-<div class="about-columns">
-  <div class="about-col">
-    <h3>Interests</h3>
-    <ul>
-      <li>Structural Biology</li>
-      <li>Computational Biology</li>
-      <li>Biophysics</li>
-      <li>Drug Discovery</li>
-    </ul>
-  </div>
-  <div class="about-col">
-    <h3>Education</h3>
-    <ul class="ul-edu">
-      <li>
-        <div class="description">
-          <p class="course">Ph.D. in [Your Field], [Year]</p>
-          <p class="institution">[Your University]</p>
-        </div>
-      </li>
-      <li>
-        <div class="description">
-          <p class="course">M.Sc. in [Your Field], [Year]</p>
-          <p class="institution">[Your University]</p>
-        </div>
-      </li>
-      <li>
-        <div class="description">
-          <p class="course">B.Sc. in [Your Field], [Year]</p>
-          <p class="institution">[Your University]</p>
-        </div>
-      </li>
-    </ul>
-  </div>
-</div>
+- Hematology
+- Genomics
+- Epigenetics
 
-## Recent News
+## Education
 
-- **2024** - Joined as Post Doctoral Fellow in Toronto, Canada
-- **2023** - Published research on [placeholder topic] in [placeholder journal]
+- **Ph.D.** in Microbiology and Immunology, Dalhousie Univeristy, 2019
+- **B.Tech** in Biotechnology, Anna University, 2011
