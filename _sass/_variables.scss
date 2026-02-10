@@ -14,11 +14,11 @@ $indent-var                 : 1.3em;
 
 /* system typefaces */
 $serif                      : Georgia, Times, serif;
-$sans-serif                 : -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
-$monospace                  : Monaco, Consolas, "Lucida Console", monospace;
+$sans-serif                 : 'Roboto', -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+$monospace                  : 'Roboto Mono', Monaco, Consolas, "Lucida Console", monospace;
 
 /* sans serif typefaces */
-$sans-serif-narrow          : $sans-serif;
+$sans-serif-narrow          : 'Montserrat', $sans-serif;
 $helvetica                  : Helvetica, "Helvetica Neue", Arial, sans-serif;
 
 /* serif typefaces */
@@ -29,7 +29,7 @@ $calisto                    : "Calisto MT", serif;
 $garamond                   : Garamond, serif;
 
 $global-font-family         : $sans-serif;
-$header-font-family         : $sans-serif;
+$header-font-family         : 'Montserrat', $sans-serif;
 $caption-font-family        : $serif;
 
 /* type scale */
@@ -47,24 +47,24 @@ $type-size-8                : 0.625em;  // ~10px
    Colors
    ========================================================================== */
 
-$gray                       : #6b7280;
+$gray                       : #7a7a7a;
 $dark-gray                  : mix(#000, $gray, 40%);
 $darker-gray                : mix(#000, $gray, 60%);
 $light-gray                 : mix(#fff, $gray, 50%);
 $lighter-gray               : mix(#fff, $gray, 90%);
 
-$body-color                 : #fff;
-$background-color           : #fff;
-$code-background-color      : #f5f7fa;
+$body-color                 : #fcfaf1;
+$background-color           : #fcfaf1;
+$code-background-color      : #f9f2f4;
 $code-background-color-dark : $light-gray;
-$text-color                 : #1a1a2e;
+$text-color                 : rgba(0, 0, 0, 0.8);
 $border-color               : $lighter-gray;
 
-$primary-color              : #1565c0;
+$primary-color              : #cfa11b;
 $success-color              : #2e7d32;
 $warning-color              : #f89406;
 $danger-color               : #ee5f5b;
-$info-color                 : #1565c0;
+$info-color                 : #cfa11b;
 
 /* brands */
 $behance-color              : #1769FF;
@@ -90,11 +90,11 @@ $xing-color                 : #006567;
 
 
 /* links */
-$link-color                 : #1565c0;
+$link-color                 : #cfa11b;
 $link-color-hover           : mix(#000, $link-color, 25%);
 $link-color-visited         : mix(#fff, $link-color, 15%);
-$masthead-link-color        : #1a1a2e;
-$masthead-link-color-hover  : $primary-color;
+$masthead-link-color        : #e6b31e;
+$masthead-link-color-hover  : #fcfaf1;
 
 
 /*
