@@ -1,159 +1,229 @@
 /* ==========================================================================
-   Home (Single-Page Layout)
+   HOME PAGE - Hugo Academic Style
    ========================================================================== */
 
 .home-section {
-  padding: 3rem 0;
-
-  &--alt {
-    background-color: darken($background-color, 3%);
-  }
+  background-color: $background-color;
+  padding: 60px 0;
+  animation: intro 0.3s both;
+  animation-delay: 0.15s;
 }
 
-.section-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: $large;
+.universal-wrapper {
   margin: 0 auto;
-  padding: 0 1.5rem;
-  gap: 2rem;
-
-  &--full {
-    display: block;
-    max-width: $large;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-  }
+  padding-right: 1rem;
+  padding-left: 1rem;
+  width: 100%;
+  max-width: 1000px;
 }
 
-.section-content {
-  flex: 1 1 60%;
-  min-width: 0;
+/* Profile Widget */
+
+#profile {
+  text-align: center;
+  padding: 30px 10px;
+}
+
+.portrait {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.06);
+}
+
+.portrait-title h2 {
+  font-size: 1.75em;
+  font-weight: 300;
+  color: #000;
+  margin: 20px 0 10px 0;
+  font-family: $header-font-family;
+}
+
+.portrait-title h3 {
+  font-size: 1rem;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.54);
+  margin: 0 0 10px 0;
+}
+
+/* Social Icons Row */
+
+ul.network-icon {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+}
+
+.network-icon li {
+  margin-right: 15px;
+}
+
+.network-icon li:last-of-type {
+  margin-right: 0;
+}
+
+.network-icon li a {
+  color: $primary-color;
+  text-decoration: none;
+  transition: transform 0.2s ease, color 0.2s ease;
+  display: block;
+}
+
+.network-icon li:hover {
+  transform: scale(1.2);
+}
+
+.network-icon li a:hover {
+  color: mix(#000, $primary-color, 20%);
+}
+
+.big-icon {
+  font-size: 2rem;
+}
+
+/* About Content: two-column layout */
+
+.about-content {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 20px 0 0 0;
 
   h2 {
     font-family: $header-font-family;
-    font-weight: 600;
-    color: $text-color;
-    border-bottom: 2px solid $primary-color;
-    padding-bottom: 0.3rem;
-    margin-top: 1.5rem;
+    font-weight: 400;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: #313131;
+    border-bottom: none;
+    padding-bottom: 0;
   }
 
   p {
-    line-height: 1.7;
-    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: rgba(0, 0, 0, 0.8);
   }
 
   ul {
-    line-height: 1.8;
-  }
-}
+    list-style: none;
+    padding-left: 0;
 
-/* Profile card (right sidebar) */
-.section-sidebar {
-  flex: 0 0 280px;
-  order: 2;
-}
+    li {
+      font-size: 0.9rem;
+      padding: 4px 0;
+      position: relative;
+      padding-left: 1.5em;
 
-.profile-card {
-  text-align: center;
-  padding: 1.5rem 1rem;
-  background: #fff;
-  border-radius: $border-radius;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-  position: sticky;
-  top: 80px;
-}
-
-.profile-photo {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 1rem;
-  border: 3px solid $primary-color;
-}
-
-.profile-name {
-  font-family: $header-font-family;
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin: 0.5rem 0 0.25rem;
-  color: $text-color;
-}
-
-.profile-bio {
-  font-size: 0.95rem;
-  color: $gray;
-  margin: 0.25rem 0;
-}
-
-.profile-location {
-  font-size: 0.85rem;
-  color: $gray;
-  margin: 0.25rem 0 0.75rem;
-
-  i {
-    margin-right: 0.25rem;
-    color: $primary-color;
-  }
-}
-
-.profile-icons {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-
-  li a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: $primary-color;
-    color: #fff;
-    font-size: 1rem;
-    transition: $global-transition;
-
-    &:hover {
-      background: darken($primary-color, 12%);
-      transform: translateY(-2px);
+      &:before {
+        content: "\f0da";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        color: $primary-color;
+      }
     }
   }
 }
 
-.section-heading {
-  font-family: $header-font-family;
-  font-weight: 700;
-  font-size: $type-size-2;
-  color: $text-color;
-  border-bottom: 3px solid $primary-color;
-  padding-bottom: 0.4rem;
-  margin-bottom: 1.5rem;
+/* Two-column interests/education layout */
+
+.about-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 1rem;
 }
 
-/* Smooth scroll offset for fixed navbar */
-.home-section {
-  scroll-margin-top: 60px;
+.about-col {
+  flex: 1;
+  min-width: 250px;
+
+  h3 {
+    font-family: $header-font-family;
+    font-weight: 400;
+    font-size: 1.25rem;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    color: #313131;
+  }
 }
 
-/* Responsive: stack on small screens */
-@media (max-width: 768px) {
-  .section-wrapper {
+.about-col ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.about-col ul li {
+  font-size: 0.9rem;
+  padding: 4px 0 4px 1.5em;
+  position: relative;
+
+  &:before {
+    content: "\f0da";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: $primary-color;
+  }
+}
+
+/* Education list with degree details */
+
+ul.ul-edu {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul.ul-edu li {
+  position: relative;
+  padding: 8px 0 8px 0;
+
+  &:before {
+    content: none;
+  }
+}
+
+ul.ul-edu li .description p {
+  margin: 0;
+}
+
+ul.ul-edu li .description p.course {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+ul.ul-edu li .description p.institution {
+  font-size: 0.75rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* Responsive */
+
+@media screen and (max-width: 768px) {
+  .home-section {
+    padding: 40px 0;
+  }
+
+  .portrait {
+    width: 150px;
+    height: 150px;
+  }
+
+  .portrait-title h2 {
+    font-size: 1.4em;
+  }
+
+  .about-columns {
     flex-direction: column;
-  }
-
-  .section-sidebar {
-    order: -1;
-    flex: 1 1 100%;
-  }
-
-  .profile-card {
-    position: static;
+    gap: 1rem;
   }
 }

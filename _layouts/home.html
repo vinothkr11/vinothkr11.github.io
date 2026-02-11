@@ -19,59 +19,57 @@ layout: compress
     {% include browser-upgrade.html %}
     {% include masthead.html %}
 
-    <!-- ABOUT SECTION -->
-    <section id="about" class="home-section">
-      <div class="section-wrapper">
-        <div class="section-content">
+    <div class="home-section" id="about">
+      <div class="universal-wrapper">
+        <div id="profile">
+          {% if author.avatar %}
+            {% if author.avatar contains "://" %}
+              <img class="portrait" src="{{ author.avatar }}" alt="{{ author.name }}">
+            {% else %}
+              <img class="portrait" src="{{ author.avatar | prepend: '/images/' | prepend: base_path }}" alt="{{ author.name }}">
+            {% endif %}
+          {% endif %}
+
+          <div class="portrait-title">
+            <h2>{{ author.name }}</h2>
+            {% if author.bio %}<h3>{{ author.bio }}</h3>{% endif %}
+            {% if author.employer %}<h3>{{ author.employer }}</h3>{% endif %}
+            {% if author.location %}<h3><i class="fa fa-map-marker" aria-hidden="true"></i> {{ author.location }}</h3>{% endif %}
+          </div>
+
+          <ul class="network-icon">
+            {% if author.email %}
+              <li><a href="mailto:{{ author.email }}"><i class="fas fa-envelope big-icon"></i></a></li>
+            {% endif %}
+            {% if author.googlescholar %}
+              <li><a href="{{ author.googlescholar }}"><i class="fas fa-graduation-cap big-icon"></i></a></li>
+            {% endif %}
+            {% if author.pubmed %}
+              <li><a href="{{ author.pubmed }}"><i class="ai ai-pubmed big-icon"></i></a></li>
+            {% endif %}
+            {% if author.github %}
+              <li><a href="{{ author.github }}"><i class="fab fa-github big-icon"></i></a></li>
+            {% endif %}
+            {% if author.linkedin %}
+              <li><a href="www.linkedin.com/in/vinothkumarrajan"><i class="fab fa-linkedin big-icon"></i></a></li>
+            {% endif %}
+            {% if author.twitter %}
+              <li><a href="https://twitter.com/{{ author.twitter }}"><i class="fab fa-twitter big-icon"></i></a></li>
+            {% endif %}
+            {% if author.orcid %}
+              <li><a href="{{ author.orcid }}"><i class="ai ai-orcid big-icon"></i></a></li>
+            {% endif %}
+            {% if author.researchgate %}
+              <li><a href="{{ author.researchgate }}"><i class="fab fa-researchgate big-icon"></i></a></li>
+            {% endif %}
+          </ul>
+        </div>
+
+        <div class="about-content">
           {{ content }}
         </div>
-        <div class="section-sidebar">
-          <div class="profile-card">
-            {% if author.avatar %}
-              {% if author.avatar contains "://" %}
-                <img class="profile-photo" src="{{ author.avatar }}" alt="{{ author.name }}">
-              {% else %}
-                <img class="profile-photo" src="{{ author.avatar | prepend: '/images/' | prepend: base_path }}" alt="{{ author.name }}">
-              {% endif %}
-            {% endif %}
-            <h3 class="profile-name">{{ author.name }}</h3>
-            {% if author.bio %}<p class="profile-bio">{{ author.bio }}</p>{% endif %}
-            {% if author.location %}<p class="profile-location"><i class="fa fa-map-marker" aria-hidden="true"></i> {{ author.location }}</p>{% endif %}
-            <ul class="profile-icons">
-              {% if author.email %}<li><a href="mailto:{{ author.email }}"><i class="fas fa-envelope"></i></a></li>{% endif %}
-              {% if author.googlescholar %}<li><a href="{{ author.googlescholar }}"><i class="fas fa-graduation-cap"></i></a></li>{% endif %}
-              {% if author.pubmed %}<li><a href="{{ author.pubmed }}"><i class="ai ai-pubmed"></i></a></li>{% endif %}
-              {% if author.github %}<li><a href="{{ author.github }}"><i class="fab fa-github"></i></a></li>{% endif %}
-              {% if author.linkedin %}<li><a href="https://www.linkedin.com/in/{{ author.linkedin }}"><i class="fab fa-linkedin"></i></a></li>{% endif %}
-              {% if author.orcid %}<li><a href="{{ author.orcid }}"><i class="ai ai-orcid"></i></a></li>{% endif %}
-              {% if author.twitter %}<li><a href="https://twitter.com/{{ author.twitter }}"><i class="fab fa-twitter"></i></a></li>{% endif %}
-              {% if author.researchgate %}<li><a href="{{ author.researchgate }}"><i class="fab fa-researchgate"></i></a></li>{% endif %}
-            </ul>
-          </div>
-        </div>
       </div>
-    </section>
-
-    <!-- PUBLICATIONS SECTION -->
-    <section id="publications" class="home-section home-section--alt">
-      <div class="section-wrapper section-wrapper--full">
-        <h1 class="section-heading">Publications</h1>
-        <p>You can also find my articles on <a href="{{ author.googlescholar }}">my Google Scholar profile</a>.</p>
-        {% for post in site.publications reversed %}
-          {% include archive-single.html %}
-        {% endfor %}
-      </div>
-    </section>
-
-    <!-- TALKS SECTION -->
-    <section id="talks" class="home-section">
-      <div class="section-wrapper section-wrapper--full">
-        <h1 class="section-heading">Talks & Presentations</h1>
-        {% for post in site.talks reversed %}
-          {% include archive-single-talk.html %}
-        {% endfor %}
-      </div>
-    </section>
+    </div>
 
     <div class="page__footer">
       <footer>
