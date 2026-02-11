@@ -1,4 +1,5 @@
 ---
+layout: home
 permalink: /
 layout: home
 title: "About"
