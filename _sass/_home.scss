@@ -1,0 +1,159 @@
+/* ==========================================================================
+   Home (Single-Page Layout)
+   ========================================================================== */
+
+.home-section {
+  padding: 3rem 0;
+
+  &--alt {
+    background-color: darken($background-color, 3%);
+  }
+}
+
+.section-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: $large;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  gap: 2rem;
+
+  &--full {
+    display: block;
+    max-width: $large;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+}
+
+.section-content {
+  flex: 1 1 60%;
+  min-width: 0;
+
+  h2 {
+    font-family: $header-font-family;
+    font-weight: 600;
+    color: $text-color;
+    border-bottom: 2px solid $primary-color;
+    padding-bottom: 0.3rem;
+    margin-top: 1.5rem;
+  }
+
+  p {
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    line-height: 1.8;
+  }
+}
+
+/* Profile card (right sidebar) */
+.section-sidebar {
+  flex: 0 0 280px;
+  order: 2;
+}
+
+.profile-card {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: #fff;
+  border-radius: $border-radius;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 80px;
+}
+
+.profile-photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid $primary-color;
+}
+
+.profile-name {
+  font-family: $header-font-family;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0.5rem 0 0.25rem;
+  color: $text-color;
+}
+
+.profile-bio {
+  font-size: 0.95rem;
+  color: $gray;
+  margin: 0.25rem 0;
+}
+
+.profile-location {
+  font-size: 0.85rem;
+  color: $gray;
+  margin: 0.25rem 0 0.75rem;
+
+  i {
+    margin-right: 0.25rem;
+    color: $primary-color;
+  }
+}
+
+.profile-icons {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  li a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: $primary-color;
+    color: #fff;
+    font-size: 1rem;
+    transition: $global-transition;
+
+    &:hover {
+      background: darken($primary-color, 12%);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.section-heading {
+  font-family: $header-font-family;
+  font-weight: 700;
+  font-size: $type-size-2;
+  color: $text-color;
+  border-bottom: 3px solid $primary-color;
+  padding-bottom: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Smooth scroll offset for fixed navbar */
+.home-section {
+  scroll-margin-top: 60px;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 768px) {
+  .section-wrapper {
+    flex-direction: column;
+  }
+
+  .section-sidebar {
+    order: -1;
+    flex: 1 1 100%;
+  }
+
+  .profile-card {
+    position: static;
+  }
+}

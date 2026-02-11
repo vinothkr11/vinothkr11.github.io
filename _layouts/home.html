@@ -1,0 +1,86 @@
+---
+layout: compress
+---
+
+{% include base_path %}
+{% if page.author and site.data.authors[page.author] %}
+  {% assign author = site.data.authors[page.author] %}{% else %}{% assign author = site.author %}
+{% endif %}
+
+<!doctype html>
+<html lang="{{ site.locale | slice: 0,2 }}" class="no-js">
+  <head>
+    {% include head.html %}
+    {% include head/custom.html %}
+  </head>
+
+  <body>
+
+    {% include browser-upgrade.html %}
+    {% include masthead.html %}
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="home-section">
+      <div class="section-wrapper">
+        <div class="section-content">
+          {{ content }}
+        </div>
+        <div class="section-sidebar">
+          <div class="profile-card">
+            {% if author.avatar %}
+              {% if author.avatar contains "://" %}
+                <img class="profile-photo" src="{{ author.avatar }}" alt="{{ author.name }}">
+              {% else %}
+                <img class="profile-photo" src="{{ author.avatar | prepend: '/images/' | prepend: base_path }}" alt="{{ author.name }}">
+              {% endif %}
+            {% endif %}
+            <h3 class="profile-name">{{ author.name }}</h3>
+            {% if author.bio %}<p class="profile-bio">{{ author.bio }}</p>{% endif %}
+            {% if author.location %}<p class="profile-location"><i class="fa fa-map-marker" aria-hidden="true"></i> {{ author.location }}</p>{% endif %}
+            <ul class="profile-icons">
+              {% if author.email %}<li><a href="mailto:{{ author.email }}"><i class="fas fa-envelope"></i></a></li>{% endif %}
+              {% if author.googlescholar %}<li><a href="{{ author.googlescholar }}"><i class="fas fa-graduation-cap"></i></a></li>{% endif %}
+              {% if author.pubmed %}<li><a href="{{ author.pubmed }}"><i class="ai ai-pubmed"></i></a></li>{% endif %}
+              {% if author.github %}<li><a href="{{ author.github }}"><i class="fab fa-github"></i></a></li>{% endif %}
+              {% if author.linkedin %}<li><a href="https://www.linkedin.com/in/{{ author.linkedin }}"><i class="fab fa-linkedin"></i></a></li>{% endif %}
+              {% if author.orcid %}<li><a href="{{ author.orcid }}"><i class="ai ai-orcid"></i></a></li>{% endif %}
+              {% if author.twitter %}<li><a href="https://twitter.com/{{ author.twitter }}"><i class="fab fa-twitter"></i></a></li>{% endif %}
+              {% if author.researchgate %}<li><a href="{{ author.researchgate }}"><i class="fab fa-researchgate"></i></a></li>{% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS SECTION -->
+    <section id="publications" class="home-section home-section--alt">
+      <div class="section-wrapper section-wrapper--full">
+        <h1 class="section-heading">Publications</h1>
+        <p>You can also find my articles on <a href="{{ author.googlescholar }}">my Google Scholar profile</a>.</p>
+        {% for post in site.publications reversed %}
+          {% include archive-single.html %}
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- TALKS SECTION -->
+    <section id="talks" class="home-section">
+      <div class="section-wrapper section-wrapper--full">
+        <h1 class="section-heading">Talks & Presentations</h1>
+        {% for post in site.talks reversed %}
+          {% include archive-single-talk.html %}
+        {% endfor %}
+      </div>
+    </section>
+
+    <div class="page__footer">
+      <footer>
+        {% include footer/custom.html %}
+        {% include footer.html %}
+      </footer>
+    </div>
+
+    {% include scripts.html %}
+
+  </body>
+</html>
