@@ -20,7 +20,7 @@ layout: compress
     {% include masthead.html %}
 
     <div class="home-section" id="about">
-      <div class="universal-wrapper">
+      <div class="universal-wrapper about-row">
         <div id="profile">
           {% if author.avatar %}
             {% if author.avatar contains "://" %}
@@ -51,7 +51,7 @@ layout: compress
               <li><a href="{{ author.github }}"><i class="fab fa-github big-icon"></i></a></li>
             {% endif %}
             {% if author.linkedin %}
-              <li><a href="www.linkedin.com/in/vinothkumarrajan"><i class="fab fa-linkedin big-icon"></i></a></li>
+              <li><a href="https://www.linkedin.com/in/{{ author.linkedin }}"><i class="fab fa-linkedin big-icon"></i></a></li>
             {% endif %}
             {% if author.twitter %}
               <li><a href="https://twitter.com/{{ author.twitter }}"><i class="fab fa-twitter big-icon"></i></a></li>
@@ -68,6 +68,37 @@ layout: compress
         <div class="about-content">
           {{ content }}
         </div>
+      </div>
+    </div>
+
+    <!-- PUBLICATIONS SECTION -->
+    <div class="home-section home-section--alt" id="publications">
+      <div class="universal-wrapper">
+        <h1 class="section-heading">Publications</h1>
+        <p>You can also find my articles on <a href="{{ author.googlescholar }}">my Google Scholar profile</a>.</p>
+        {% assign pub_count = site.publications | size %}
+        {% if pub_count > 0 %}
+          {% for post in site.publications reversed %}
+            {% include archive-single.html %}
+          {% endfor %}
+        {% else %}
+          <p>Publications are updated automatically. Please visit my <a href="{{ author.googlescholar }}">Google Scholar profile</a> for a full list.</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- TALKS SECTION -->
+    <div class="home-section" id="talks">
+      <div class="universal-wrapper">
+        <h1 class="section-heading">Talks & Presentations</h1>
+        {% assign talk_count = site.talks | size %}
+        {% if talk_count > 0 %}
+          {% for post in site.talks reversed %}
+            {% include archive-single-talk.html %}
+          {% endfor %}
+        {% else %}
+          <p>No talks listed yet.</p>
+        {% endif %}
       </div>
     </div>
 
