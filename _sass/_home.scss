@@ -7,6 +7,11 @@
   padding: 60px 0;
   animation: intro 0.3s both;
   animation-delay: 0.15s;
+  scroll-margin-top: 60px;
+
+  &--alt {
+    background-color: darken($background-color, 3%);
+  }
 }
 
 .universal-wrapper {
@@ -17,11 +22,20 @@
   max-width: 1000px;
 }
 
-/* Profile Widget */
+/* About section: two-column layout (profile LEFT, content RIGHT) */
+
+.about-row {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+/* Profile Widget (LEFT column) */
 
 #profile {
   text-align: center;
   padding: 30px 10px;
+  flex: 0 0 280px;
 }
 
 .portrait {
@@ -87,11 +101,11 @@ ul.network-icon {
   font-size: 2rem;
 }
 
-/* About Content: two-column layout */
+/* About Content (RIGHT column) */
 
 .about-content {
-  max-width: 760px;
-  margin: 0 auto;
+  flex: 1;
+  min-width: 0;
   padding: 20px 0 0 0;
 
   h2 {
@@ -206,11 +220,31 @@ ul.ul-edu li .description p.institution {
   color: rgba(0, 0, 0, 0.6);
 }
 
+/* Section heading for publications/talks */
+
+.section-heading {
+  font-family: $header-font-family;
+  font-weight: 700;
+  font-size: 1.953em;
+  color: $text-color;
+  border-bottom: 3px solid $primary-color;
+  padding-bottom: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
 /* Responsive */
 
 @media screen and (max-width: 768px) {
   .home-section {
     padding: 40px 0;
+  }
+
+  .about-row {
+    flex-direction: column;
+  }
+
+  #profile {
+    flex: 1 1 100%;
   }
 
   .portrait {
